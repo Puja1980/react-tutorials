@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import TodoForm from './components/TodoForm'
+import SingleTodo from './components/SingleTodo'
+import { TodoProvider } from './Context/TodoContext'
+
 
 
 function App() {
   return (
-    <div>
+    <TodoProvider value={{addTodo, removeTodo, updateTodo }}>
       <TodoForm/>
-    </div>
+      <SingleTodo/>
+    </TodoProvider>
   )
 }
 
