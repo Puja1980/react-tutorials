@@ -15,10 +15,7 @@ function TodoForm() {
   }
 
   return (
-    <form onSubmit={add}
-    className="w-full"
-    >
-      <div className=" text-white text-center">TodoForm</div>
+    <form onSubmit={add} className="flex">
       <div className="w-full m-2 p-2 flex justify-center items-center">
 
         <input 

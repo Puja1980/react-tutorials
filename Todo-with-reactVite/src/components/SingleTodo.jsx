@@ -16,7 +16,7 @@ function SingleTodo({ todo }) {
   };
 
   return (
-    <div className="flex gap-x-3 mt-2 bg-blue-400 p-0.5 rounded-lg">
+    <div className="flex justify-between items-center gap-x-3 mt-1 bg-blue-400 p-0.5 rounded-lg">
       <input
         type="checkbox"
         onChange={toggleCompleted}
@@ -26,10 +26,10 @@ function SingleTodo({ todo }) {
         type="text"
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
-        className={`bg-transparent outline-none text-white ${isTodoEditable? 'px-1 bg-blue-500 rounded-xl border-1 border-blue-950':'bg-blue-400'} ${todo.completed ? 'line-through':''}`}
+        className={`bg-transparent outline-none text-white w-3/4 ${isTodoEditable? 'px-1 bg-blue-500 rounded-xl border-1 border-blue-950':''} ${todo.completed ? 'line-through':''}`}
       />
 
-      <div>
+      <div className="flex">
         <button
           onClick={() => {
             if(todo.completed) return;
@@ -37,15 +37,15 @@ function SingleTodo({ todo }) {
               editTodo()
             }else setIsTodoEditable((prev) => !prev);
           }}
-          className={`bg-green-500 text-white m-1  px-3 py-1 rounded-lg ${isTodoEditable? 'bg-yellow-500 text-black': ''}`}
+          className={`bg-green-500 text-white m-1  px-3 rounded-lg ${isTodoEditable? 'bg-yellow-500 text-black': ''}`}
         >
-          Edit
+          {isTodoEditable ? 'Save': 'Edit'}
         </button>
 
         <button
           onClick={() => removeTodo(todo.id)}
           disabled = {todo.completed}
-          className="bg-red-500 text-white px-3 py-1 rounded-lg"
+          className="bg-red-500 text-white px-3 rounded-lg"
         >
           X
         </button>

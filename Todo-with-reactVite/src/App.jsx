@@ -36,12 +36,13 @@ function App() {
 
   return (
     <TodoProvider value={{ addTodo, removeTodo, updateTodo, toggleComplete }}>
-      <div className="flex flex-col justify-center items-center bg-slate-500 p-2  mt-10 rounded-xl">
+      <div className="flex flex-col w-1/2 mx-52 my-2 mt-5 pb-2 px-2 justify-center items-center bg-slate-400 rounded-xl">
+      <h1 className=" text-white text-center">Manage Todo</h1>
         <div>
           <TodoForm />
         </div>
 
-        <div>
+        <div className="flex flex-wrap gap-y-3">
           {todos.map((todo) => (
             <div key={todo.id} className="w-full">
               <SingleTodo todo={todo} />
