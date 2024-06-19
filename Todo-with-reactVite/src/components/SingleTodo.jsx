@@ -26,7 +26,7 @@ function SingleTodo({ todo }) {
         type="text"
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
-        className={`bg-transparent outline-none text-white w-3/4 ${isTodoEditable? 'px-1 bg-blue-500 rounded-xl border-1 border-blue-950':''} ${todo.completed ? 'line-through':''}`}
+        className={`bg-transparent outline-none text-white w-3/4 ${isTodoEditable? 'px-1 bg-blue-600 rounded-xl border-1 border-black':''} ${todo.completed ? 'line-through':''}`}
       />
 
       <div className="flex">
@@ -37,7 +37,7 @@ function SingleTodo({ todo }) {
               editTodo()
             }else setIsTodoEditable((prev) => !prev);
           }}
-          className={`bg-green-500 text-white m-1  px-3 rounded-lg ${isTodoEditable? 'bg-yellow-500 text-black': ''}`}
+          className={`bg-green-500 text-white mr-1  px-3 rounded-lg ${isTodoEditable? 'bg-yellow-500 text-black': ''}`}
         >
           {isTodoEditable ? 'Save': 'Edit'}
         </button>
