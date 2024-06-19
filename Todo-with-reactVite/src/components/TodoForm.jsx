@@ -1,13 +1,30 @@
-import React from "react";
+import React,{useState} from "react";
+import { useTodo } from "../Context/TodoContext";
 
 function TodoForm() {
+  const [todo, setTodo] = useState([])
+  const {addTodo} = useTodo()
+
+
+ const add = (e) => {
+    e.preventDefault()
+
+    if(!todo) return
+      addTodo({todo, completed : false})
+      setTodo('')
+  }
+
   return (
-    <form className="flex flex-col justify-center items-center bg-slate-500 p-2 m-60 rounded-xl">
+    <form onSubmit={add}
+    className="w-full"
+    >
       <div className=" text-white text-center">TodoForm</div>
-      <div className="w-full m-8 p-2 flex justify-center items-center">
+      <div className="w-full m-2 p-2 flex justify-center items-center">
 
         <input 
-            type="text" 
+            type="text"
+            value={todo} 
+            onChange={(e) => setTodo (e.target.value)}
             placeholder="Add Todo" 
             className="w-full p-2 outline-none rounded-s-lg"
         />
