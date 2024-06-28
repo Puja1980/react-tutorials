@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import store from './Store/store';
+import Card from './components/Card'
+import { Provider } from "react-redux";
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1 className='flex justify-center items-center bg-slate-500 text-white'>Hellow World</h1>
-    </>
+    <Provider store={store} >
+      <Card/>
+    </Provider>
   )
 }
 
