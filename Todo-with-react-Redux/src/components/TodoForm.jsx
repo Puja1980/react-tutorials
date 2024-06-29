@@ -7,7 +7,7 @@ function TodoForm() {
   const dispatch = useDispatch();
 
 
-   const handleSubmit =(e) => {
+  const handleSubmit =(e) => {
   e.preventdefault();
   if(/^\s*$/.test(input)) {
     alert('Please Enter a valid Todo')
@@ -29,7 +29,6 @@ function TodoForm() {
         onChange={(e) => setInput(e.target.value)}
         placeholder='Write Todo'
         className='w-5/6 px-2 rounded-s-lg text-black outline-none text-lg'
-
       />
       <button
         type='submit'
@@ -42,4 +41,4 @@ function TodoForm() {
   )
 }
 
-export default TodoForm
+export default TodoForm;
