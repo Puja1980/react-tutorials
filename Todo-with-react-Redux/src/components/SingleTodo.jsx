@@ -8,10 +8,16 @@ function SingleTodo(props) {
 
   return (
     <div className="bg-yellow-500 flex justify-between items-center rounded-lg">
-      <div className="px-2">
-        <h1>{props.text}</h1>
+      <div className="flex px-2 ">
+      <input 
+          type="checkbox"
+          
+
+          />
+        <h1 className="ml-3">{props.text}</h1>
       </div>
       <div className="m-1 ">
+        
         <button
           onClick={() =>
             dispatch(
