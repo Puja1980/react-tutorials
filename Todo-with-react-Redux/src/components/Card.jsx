@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 function Card() {
   const todos = useSelector(state => state.todos);
-  const toggleForm = useSelector(state => state.toggleForm);
+  const toggleForm = useSelector((state) => state.toggleForm);
   const dispatch = useDispatch();
   console.log(todos);
 
@@ -21,11 +21,11 @@ function Card() {
       </div>
       <div>
         <ul>
-          {todos.map(todo =>
+          {todos.map((todo)=>(
             <li key={todo.id} className="mt-2">
-              <SingleTodo id={todo.id} text={todo.text} />
-            </li>
-          )}
+            <SingleTodo id={todo.id} text={todo.text} />
+          </li>
+          ))}
         </ul>
       </div>
       <div>

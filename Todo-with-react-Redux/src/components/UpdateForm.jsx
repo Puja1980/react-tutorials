@@ -1,20 +1,24 @@
 import React, { useState } from "react";
-import { addTodo } from "../feature/TodoSlice/TodoSlice";
-import { useDispatch } from "react-redux";
+import {useSelector, useDispatch } from "react-redux";
+import { updateComplete } from "../feature/TodoSlice/TodoSlice";
 
 function UpdateForm() {
-  const [input, setInput] = useState('');
+  const todoToUpdate = useSelector((state) => state.todoUpdate);
+  const [uptade, setUpdate] = useState(todoToUpdate.text)
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventdefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    if (/^\s*$/.test(input)) {
+    if (/^\s*$/.test(uptade)) {
       alert("Please Enter a valid Todo");
-      setInput("")
+      setUpdate("")
     } else {
-      dispatch(addTodo(input));
-      setInput("")
+      dispatch(updateComplete({
+        id:todoToUpdate.id,
+        text: uptade
+      }));
+      setUpdate("")
     }
   };
   return (
@@ -24,8 +28,8 @@ function UpdateForm() {
       <div>
         <input
           type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
+          value={uptade}
+          onChange={e => setUpdate(e.target.value)}
           placeholder="Update Todo"
           className="w-5/6 px-2 rounded-s-lg text-black outline-none text-lg"
         />

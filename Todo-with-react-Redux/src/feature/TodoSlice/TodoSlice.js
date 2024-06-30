@@ -25,7 +25,7 @@ const TodoSlice = createSlice({
         addTodo:(state, action)=>{
             const todo ={
                 id : nanoid(),
-                text : action.payload.text
+                text : action.payload
             }
             state.todos.push(todo)
         },
@@ -37,6 +37,11 @@ const TodoSlice = createSlice({
             state.toggleForm = !state.toggleForm,
             state.todoUpdate = {...state.todoUpdate, ...action.payload}
         },
+        updateComplete : (state, action) => {
+            const todoModified = state.todos.find((todo)=> todo.id === action.payload.id);
+            todoModified.text = action.payload.text;
+            state.toggleForm = !state.toggleForm;
+        },
 
         clearTodo : (state) => {
             state.todos = []
@@ -45,5 +50,5 @@ const TodoSlice = createSlice({
     }
 })
 
-export const {addTodo, removeTodo, toggleInputForm, clearTodo} = TodoSlice.actions
+export const {addTodo, removeTodo, toggleInputForm, clearTodo, updateComplete} = TodoSlice.actions
 export default TodoSlice.reducer
