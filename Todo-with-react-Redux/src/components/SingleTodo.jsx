@@ -16,7 +16,7 @@ function SingleTodo(props) {
           className="cursor-pointer mx-2"
 
         />
-        <h1 className={`ml-3 ${done? 'line-through': ''}`}>
+        <h1 className={`ml-3 ${done? 'line-through font-semibold': ''}`}>
           {props.text}
           </h1>
       </div>
