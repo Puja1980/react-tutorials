@@ -4,19 +4,25 @@ import { removeTodo, toggleInputForm } from "../feature/TodoSlice/TodoSlice";
 import { FaPencil } from "react-icons/fa6";
 
 function SingleTodo(props) {
+  const [done, setDone] = React.useState(false)
   const dispatch = useDispatch();
 
   return (
     <div className="bg-yellow-500 flex justify-between items-center rounded-lg">
       <div className="flex px-2 ">
-      <input 
+      <input
           type="checkbox"
-          
+          onChange={() => setDone(!done)}
+          className="cursor-pointer mx-2"
 
-          />
-        <h1 className="ml-3">{props.text}</h1>
+        />
+        <h1 className={`ml-3 ${done? 'line-through': ''}`}>
+          {props.text}
+          </h1>
       </div>
       <div className="m-1 ">
+
+        
         
         <button
           onClick={() =>
@@ -27,7 +33,7 @@ function SingleTodo(props) {
               })
             )
           }
-          className={`bg-green-500 text-black text-lg mr-2 px-3 py-2 rounded-lg `}
+          className={`bg-green-500 text-black text-lg mr-2 px-3 py-2 rounded-lg }`}
         >
           <FaPencil />
         </button>
